@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141711685631",
+    "project_id": "art-drawer",
+    "storage_bucket": "art-drawer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141711685631:android:bc1b3584b958f66a0619ca",
+        "android_client_info": {
+          "package_name": "com.artdrawer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141711685631-o27o9e0svl5se8dveori2982d72delos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmJRIt_PcsZuF9m1cxYf7F_P7b-NsxaqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141711685631-o27o9e0svl5se8dveori2982d72delos.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
