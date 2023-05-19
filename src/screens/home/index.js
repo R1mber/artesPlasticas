@@ -24,7 +24,7 @@ export default function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Text>Home Screen</Text>
-      <Button onPress={() => navigation.navigate('Draw')} title="Go to Draw" />
+      <Button onPress={() => navigation.navigate('ExtrasExample')} title="Go to Draw" />
     </View>
   );
 }

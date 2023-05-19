@@ -12,6 +12,7 @@
   "dependencies": {
     "@benjeau/react-native-draw": "^0.8.3",
     "@benjeau/react-native-draw-extras": "^0.2.2",
+    "@react-native-community/slider": "^4.4.2",
     "@react-native-firebase/app": "^17.5.0",
     "@react-native-firebase/firestore": "^17.5.0",
     "@react-navigation/native": "^6.1.6",
