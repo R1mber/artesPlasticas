@@ -23,12 +23,16 @@ if (__DEV__) {
 const db = firestore();
 
 export default function Home({ navigation }) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [temas, setTemas] = useState([]);
   const geTemas = async () => {
     const data = await db.collection('temas').get();
     setTemas(data.docs);
     console.log(data.docs);
+    //espera 2 segundos para mostrar el contenido
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
   useEffect(() => {
     geTemas();
@@ -64,7 +68,6 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //marginTop: StatusBar.currentHeight || 0,
     backgroundColor: colors.light,
   },
   screen: {
