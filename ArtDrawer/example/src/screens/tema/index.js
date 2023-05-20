@@ -272,6 +272,7 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   container: {
+    marginTop: StatusBar.currentHeight || 0,
     flex: 1,
   },
   image: {

@@ -8,6 +8,7 @@ import {
   TextInput,
   Alert,
   Pressable,
+  View,
 } from 'react-native';
 import { Canvas, CanvasRef } from '@benjeau/react-native-draw';
 import { colors } from '../utils/colors';
@@ -116,7 +117,15 @@ export default ({ route }) => {
   }, [dataId]);
 
   return (
-    <>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: colors.mostaza,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: 8,
+      }}
+    >
       <ViewShot
         ref={ref}
         onCapture={onCapture}
@@ -132,13 +141,19 @@ export default ({ route }) => {
         />
       </ViewShot>
 
-      <Pressable onPress={handleClear}>
-        <MaterialIcons name="delete" size={24} color="black" />
+      <Pressable onPress={handleClear} style={styles.btnFloatLeft}>
+        <MaterialIcons name="delete" size={24} color="white" />
       </Pressable>
-      <Pressable onPress={handleUndo}>
-        <AntDesign name="back" size={24} color="black" />
+      <Pressable onPress={handleUndo} style={styles.btnFloatRight}>
+        <AntDesign name="back" size={24} color="white" />
       </Pressable>
-      <Button title="Subir Dibujo" onPress={() => setModalVisible(true)} />
+
+      <TouchableOpacity
+        style={styles.buttonSubir}
+        onPress={() => setModalVisible(true)}
+      >
+        <Text style={styles.textBlack}>Subir Dibujo</Text>
+      </TouchableOpacity>
       <ModalForm
         isVisible={modalVisible}
         onClose={() => setModalVisible(false)}
@@ -155,20 +170,45 @@ export default ({ route }) => {
           value={descImage}
           numberOfLines={4}
           multiline
-          placeholder="datos del dibujo"
+          placeholder="Descripcion del dibujo"
         />
-        <TouchableOpacity style={styles.buttonSubir} onPress={handleSubir}>
+        <Pressable style={styles.modalBtn} onPress={handleSubir}>
           <Text style={styles.textBlack}>Subir Dibujo</Text>
-        </TouchableOpacity>
+        </Pressable>
       </ModalForm>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  modalBtn: {
+    backgroundColor: colors.verde,
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 10,
+    textAlign: 'center',
+    marginHorizontal: 48,
+    justifyContent: 'center',
+  },
+  btnFloatLeft: {
+    position: 'absolute',
+    bottom: 10,
+    left: 10,
+    backgroundColor: colors.verde,
+    padding: 10,
+    borderRadius: 100,
+  },
+  btnFloatRight: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    backgroundColor: colors.verde,
+    padding: 10,
+    borderRadius: 100,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.mostaza,
   },
   buttonIcon: {
     marginRight: 10,
@@ -183,13 +223,20 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
+    borderColor: colors.gray,
     padding: 10,
+    borderRadius: 16,
+    backgroundColor: colors.light,
   },
   inputDesc: {
     height: 100,
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    borderColor: colors.gray,
+    borderRadius: 16,
+    backgroundColor: colors.light,
+    textAlignVertical: 'top',
   },
   img: {
     width: 100,
@@ -217,7 +264,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonSubir: {
-    backgroundColor: colors.verde,
+    backgroundColor: colors.red,
     color: colors.light,
     padding: 10,
     borderRadius: 10,
@@ -227,6 +274,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   buttonOpen: {
     backgroundColor: '#F194FF',

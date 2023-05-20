@@ -15,7 +15,9 @@ export default function ModalForm({ isVisible, children, onClose }) {
       <View style={styles.modalContent}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Ingresa tus datos</Text>
-          <Pressable onPress={onClose}>
+          <Pressable onPress={onClose}
+            style={styles.closeIcon}
+          >
             <MaterialIcons name="close" color="#fff" size={22} />
           </Pressable>
         </View>
@@ -27,6 +29,11 @@ export default function ModalForm({ isVisible, children, onClose }) {
 }
 
 const styles = StyleSheet.create({
+  closeIcon: {
+    backgroundColor: colors.gray,
+    borderRadius: 50,
+    padding: 5,
+  },
   modalContent: {
     height: '60%',
     width: '100%',
@@ -47,8 +54,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   title: {
-    color: '#000',
-    fontSize: 16,
+    color: colors.red,
+    fontSize: 20,
+    fontWeight: 'bold',
+
   },
   pickerContainer: {
     flexDirection: 'row',

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, StatusBar } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import Footer from '../conponents/footer';
 import Header from '../conponents/header';
@@ -28,26 +28,16 @@ export default function Tareas({ route }) {
 
   return (
     <>
-      {loading ? (
-        <View style={styles.screen}>
-          <Image
-            style={styles.tinyLogo}
-            source={require('../assets/logo.png')}
-          />
-          <Text style={styles.textLoad}>Cargando...</Text>
-        </View>
-      ) : (
-        <View style={styles.container}>
-          <Header />
-          <ScrollView style={styles.body}>
-            {tareas.map((tarea) => {
-              return <ImageCard key={tarea.id} tema={tarea.data()} />;
-            })}
-            {/* <Button onPress={() => navigation.navigate('Draw')} title="Go to Draw" /> */}
-          </ScrollView>
-          <Footer />
-        </View>
-      )}
+      <View style={styles.container}>
+        <Header />
+        <ScrollView style={styles.body}>
+          {tareas.map((tarea) => {
+            return <ImageCard key={tarea.id} tema={tarea.data()} />;
+          })}
+          {/* <Button onPress={() => navigation.navigate('Draw')} title="Go to Draw" /> */}
+        </ScrollView>
+        <Footer />
+      </View>
     </>
   );
 }
@@ -55,7 +45,7 @@ export default function Tareas({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0,
     backgroundColor: colors.light,
   },
   screen: {
